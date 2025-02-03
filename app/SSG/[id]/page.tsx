@@ -20,6 +20,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <div className="m-12">
         <h1>{product.title}</h1>
+        <p>gggggg</p>
         <h1>{product.description}</h1>
     </div>
   )
