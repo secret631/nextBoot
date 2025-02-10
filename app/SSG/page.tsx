@@ -1,4 +1,13 @@
 import React from "react";
+import Link from "next/link";
+import { Metadata } from "next";
+
+//Metadata
+export const metadata : Metadata={
+  title: 'SSg Page',
+  description: "SSG description"
+}
+
 
 const SSGpage = async () => {
   const res = await fetch("https://dummyjson.com/products", {
@@ -13,7 +22,12 @@ const SSGpage = async () => {
       <ul>
         {data.products.map((product: any) => (
           <li key={product.id}>
+
+            {/* Link */}
+            <Link href={`/SSG/${product.id}`}>
             {product.id} : {product.title}
+            </Link>
+            
           </li>
         ))}
       </ul>
