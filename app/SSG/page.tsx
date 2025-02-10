@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
+import Image from "next/image";
 
 //Metadata
-export const metadata : Metadata={
-  title: 'SSg Page',
-  description: "SSG description"
+export const metadata: Metadata = {
+  title: ' محصولات آرایشی ',
+  description: " محصولات آرایشی "
 }
 
 
@@ -18,19 +19,33 @@ const SSGpage = async () => {
   return (
     <div>
 
-      <h1 className="flex justify-center bg-red-200"> SSG page </h1>
-      <ul>
+      <h1 className=" flex justify-center pt-8 font-extrabold "> محصولات آرایشی </h1>
+   
+       <hr className="mt-2 w-30"></hr>
+
+
+      <div className="m-8 justify-center items-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {data.products.map((product: any) => (
-          <li key={product.id}>
+          <div key={product.id} className="grid text-center py-2 font-bold border border-gray p-4 justify-center rounded-lg">
 
             {/* Link */}
             <Link href={`/SSG/${product.id}`}>
-            {product.id} : {product.title}
+              {product.thumbnail ?
+                <Image
+                  width={200}
+                  height={200}
+
+                  src={product?.thumbnail}
+                  alt={product.title}
+                />
+                : null
+              }
+              {product.title}
             </Link>
-            
-          </li>
+
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
