@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { StoreProvider } from "@/Redux/StoreProvider";
+import ProgressBar from "@/src/Components/ProgressBar";
+import ProgressBarLogo from "@/src/Components/ProgressBarLogo";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +29,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
+
+
+        <StoreProvider>
+          <ProgressBarLogo/>
+          <ProgressBar />
+          {children}
+        </StoreProvider>
+
+
+
       </body>
     </html>
   );
