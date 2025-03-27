@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RevalidateButton from "@/src/Components/RevalidateButton";
 
 export default function Home() {
   return (
@@ -97,6 +98,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
+        <RevalidateButton/>
       </footer>
     </div>
   
